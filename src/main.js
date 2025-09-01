@@ -39,7 +39,10 @@ const buscarPorNombreTool = tool({
         nombre: z.string().describe("El nombre del estudiante a buscar"),
     }),
     execute: ({ nombre }) => {
-        // Tu código aquí
+        const resultados = estudiantes.buscarEstudiantePorNombre(nombre);
+        return resultados.length > 0
+            ? resultados.map(e => `${e.nombre} ${e.apellido} (${e.curso})`).join("\n")
+            : `No hay estudiantes con el nombre: "${nombre}"`;
     },
 });
 
@@ -51,7 +54,10 @@ const buscarPorApellidoTool = tool({
         apellido: z.string().describe("El apellido del estudiante a buscar"),
     }),
     execute: ({ apellido }) => {
-       return;
+        const resultados = estudiantes.buscarEstudiantePorApellido(apellido);
+        return resultados.length > 0
+            ? resultados.map(e => `${e.nombre} ${e.apellido} (${e.curso})`).join("\n")
+            : `No hay estudiantes con el apellido: "${apellido}"`;
     },
 });
 
@@ -65,7 +71,8 @@ const agregarEstudianteTool = tool({
         curso: z.string().describe("El curso del estudiante (ej: 4A, 4B, 5A)"),
     }),
     execute: ({ nombre, apellido, curso }) => {
-        return;
+        const nuevo = estudiantes.agregarEstudianteDesdeJson(nombre, apellido, curso);
+        return `Los datos del nuevo estudiante son: ${nuevo.nombre} ${nuevo.apellido} (${nuevo.curso})`;
     },
 });
 
@@ -75,7 +82,10 @@ const listarEstudiantesTool = tool({
     description: "Usa esta función para mostrar todos los estudiantes",
     parameters: z.object({}),
     execute: () => {
-        return;
+        const lista = estudiantes.listarEstudiantes();
+        return lista.length > 0
+            ? lista.map(e => `${e.nombre} ${e.apellido} (${e.curso})`).join("\n")
+            : "ℹ️ No hay estudiantes registrados todavía.";
     },
 });
 
