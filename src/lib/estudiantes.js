@@ -30,7 +30,7 @@ class Estudiantes {
   // TODO: Implementar método para agregar estudiante
   agregarEstudiante(nombre, apellido, curso) {
     const nuevoEstudiante = { nombre, apellido, curso };
-    this.estudiantes.push(nuevo);
+    this.estudiantes.push(nuevoEstudiante);
     this.guardarEstudiantes();
     return nuevoEstudiante;
   }
