@@ -71,7 +71,7 @@ const agregarEstudianteTool = tool({
         curso: z.string().describe("El curso del estudiante (ej: 4A, 4B, 5A)"),
     }),
     execute: ({ nombre, apellido, curso }) => {
-        const nuevo = estudiantes.agregarEstudianteDesdeJson(nombre, apellido, curso);
+        const nuevo = estudiantes.agregarEstudiante(nombre, apellido, curso);
         return `Los datos del nuevo estudiante son: ${nuevo.nombre} ${nuevo.apellido} (${nuevo.curso})`;
     },
 });

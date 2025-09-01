@@ -29,6 +29,21 @@
       "nombre": "Pedro",
       "apellido": "González",
       "curso": "4B"
+    },
+    {
+      "nombre": "Ana",
+      "apellido": "Rodriguez",
+      "curso": "3B"
+    },
+    {
+      "nombre": "Ana",
+      "apellido": "Rodriguez",
+      "curso": "3B"
+    },
+    {
+      "nombre": "Ana",
+      "apellido": "Rodriguez",
+      "curso": "3B"
     }
   ]
 }
